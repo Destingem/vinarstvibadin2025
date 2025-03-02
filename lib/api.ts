@@ -7,9 +7,10 @@ function getBaseUrl() {
     return '';
   }
   
-  // In development server-side, use localhost
+  // In development server-side, use the port from environment or the one we know is being used
   if (process.env.NODE_ENV === 'development') {
-    return 'http://localhost:3000';
+    // Use port 2456 which is what your server is running on
+    return 'http://localhost:2456';
   }
   
   // In production server-side, use the configured URL or default to empty (relative)
@@ -31,7 +32,42 @@ export async function fetchContent(): Promise<ContentData> {
     return await response.json();
   } catch (error) {
     console.error('Error fetching content:', error);
-    return {} as ContentData;
+    // Return a minimal valid ContentData object to prevent null reference errors
+    return {
+      hero: {
+        title: "Vinařství Badin",
+        subtitle: "Načítání obsahu...",
+        badge: "",
+        buttonPrimary: "",
+        buttonSecondary: "",
+        backgroundImage: ""
+      },
+      about: { title: "", badge: "", paragraphs: [], timeline: [], cta: "" },
+      news: { title: "", subtitle: "" },
+      wines: { title: "", subtitle: "", cta: "" },
+      contact: {
+        title: "",
+        intro: "",
+        details: {
+          company: { name: "", ico: "" },
+          owner: "",
+          address: "",
+          phones: [],
+          email: "",
+          openingHours: "",
+          gps: ""
+        }
+      },
+      features: [],
+      popup: {
+        title: "",
+        description: "",
+        buttonText: "",
+        buttonLink: "",
+        imageUrl: "",
+        enabled: false
+      }
+    };
   }
 }
 
