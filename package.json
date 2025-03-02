@@ -7,7 +7,8 @@
     "build": "next build --no-lint",
     "start": "next start -p 2456",
     "lint": "next lint",
-    "build:prod": "NEXT_PUBLIC_RUNTIME=false next build && NEXT_PUBLIC_RUNTIME=true next export"
+    "build:prod": "NEXT_PUBLIC_RUNTIME=false next build && NEXT_PUBLIC_RUNTIME=true next export",
+    "dev:build": "concurrently \"npm run dev\" \"npm run build\""
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.1.6",
@@ -25,6 +26,7 @@
     "@tailwindcss/typography": "^0.5.16",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "concurrently": "^9.1.2",
     "fs": "^0.0.1-security",
     "lodash": "^4.17.21",
     "lucide-react": "^0.477.0",
