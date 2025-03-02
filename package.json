@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 2456",
     "build": "next build --no-lint",
-    "start": "next start",
+    "start": "next start -p 2456",
     "lint": "next lint",
     "build:prod": "NEXT_PUBLIC_RUNTIME=false next build && NEXT_PUBLIC_RUNTIME=true next export"
   },
