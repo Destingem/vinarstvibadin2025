@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" fill="#f8f8f8"/>
+  
+  <!-- Background design elements -->
+  <rect x="0" y="0" width="400" height="400" fill="#f9f5f6"/>
+  <path d="M0,0 L400,0 L400,400 L0,400 Z" fill="#fcfafa"/>
+  
+  <!-- Grapevine design -->
+  <g transform="translate(120, 100)">
+    <!-- Grape cluster -->
+    <!-- Top left grape -->
+    <circle cx="50" cy="60" r="30" fill="#a91941" opacity="0.8"/>
+    
+    <!-- Top right grape -->
+    <circle cx="130" cy="60" r="30" fill="#a91941" opacity="0.8"/>
+    
+    <!-- Bottom grape -->
+    <circle cx="90" cy="130" r="30" fill="#a91941" opacity="0.8"/>
+    
+    <!-- Connecting stems -->
+    
+  </g>
+  
+  <!-- Text label -->
+</svg>

@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Tramín červený",
+    "year": "2021",
+    "description": "Ve vůni i chuti, tohoto vydařeného Tramínu, najdeme tóny citrusů, čajové růže a liči. Barva zlatavá, vyvážený poměr kyseliny a zbytkového cukru vytváří z tohoto vína jedinečný zážitek pro všechny milovníky aromatických odrůd vín\n",
+    "price": "140",
+    "image": "",
+    "type": "cervene",
+    "attributes": [
+      "test 1"
+    ],
+    "id": "d605a293-2fdb-45b7-b075-59e2b6dbd4c1",
+    "createdAt": "2025-03-01T19:28:41.197Z",
+    "updatedAt": "2025-03-01T19:52:59.170Z"
+  },
+  {
+    "name": "Frankovka",
+    "year": "2018",
+    "description": "Víno má jasně granátovou barvu s fialovými odlesky. Vůně je ovocná s aroma drobného zahradního ovoce, jako jsou například višně a nebo černý bez.",
+    "price": "120",
+    "image": "/uploads/77ee4c30-e4de-4fdb-82ee-c0b03a3023ef.webp",
+    "type": "bile",
+    "attributes": [
+      "a",
+      "bcd"
+    ],
+    "id": "972179bd-88da-4f3c-b8cf-3e7d2c2a4481",
+    "createdAt": "2025-03-01T19:29:34.899Z"
+  },
+  {
+    "name": "Zweigeltrebe",
+    "year": "2018",
+    "description": "Víno granátové barvy s vůní červeného ovoce. V chuti dominují alkoholizované višně. Plné harmonické víno s delší dochutí.",
+    "price": "110",
+    "image": "/uploads/2292daf2-5030-4daa-aa40-074da47ecff0.webp",
+    "type": "ruzove",
+    "attributes": [
+      "suché",
+      "aromatické"
+    ],
+    "id": "db500e82-2e82-44d6-9a7f-828b4fe3e632",
+    "createdAt": "2025-03-01T19:30:51.771Z"
+  },
+  {
+    "name": "Svatovavřinecké",
+    "year": "2024",
+    "description": "Víno je plné, kvalitní, s typickým odrůdovým aroma a obvykle tmavší barvou. Ve vůni najdeme višeň, zralé švestky a povidla, lesní tmavé bobulové ovoce.\n",
+    "price": "95",
+    "image": "/uploads/32eff6a5-dcbb-4672-aefa-732e206977e7.webp",
+    "type": "cervene",
+    "attributes": [
+      "ein. zwei"
+    ],
+    "id": "4fbd3a8f-3ac9-494a-b247-55dfa0bd632e",
+    "createdAt": "2025-03-01T19:31:32.120Z"
+  }
+]

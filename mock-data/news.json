@@ -1,0 +1,16 @@
+[
+  {
+    "id": "mock-1",
+    "title": "Nová sklizeň 2023",
+    "content": "Tento obsah slouží jen jako záloha pro Next.js build proces.",
+    "imageUrl": "/mock-image.jpg",
+    "createdAt": "2023-10-01T12:00:00.000Z"
+  },
+  {
+    "id": "mock-2",
+    "title": "Otevíráme novou degustační místnost",
+    "content": "Tento obsah slouží jen jako záloha pro Next.js build proces.",
+    "imageUrl": "/mock-image.jpg",
+    "createdAt": "2023-09-15T12:00:00.000Z"
+  }
+]

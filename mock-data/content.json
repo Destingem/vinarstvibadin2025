@@ -1,0 +1,86 @@
+{
+  "hero": {
+    "badge": "Rodinné vinařství",
+    "title": "Vinařství Badin",
+    "subtitle": "Vína, která vyprávějí příběh našeho terroir.",
+    "buttonPrimary": "Naše vína",
+    "buttonSecondary": "Kontakt",
+    "backgroundImage": "/hero-background.jpg"
+  },
+  "features": [
+    {
+      "icon": "GrapeIcon",
+      "title": "Ruční sběr hroznů",
+      "description": "Všechny hrozny sklízíme ručně v optimální zralosti."
+    },
+    {
+      "icon": "WineIcon",
+      "title": "Moderní technologie",
+      "description": "Kombinujeme tradice s nejmodernějšími postupy."
+    },
+    {
+      "icon": "MapPinIcon",
+      "title": "Vlastní vinohrady",
+      "description": "Pěstujeme hrozny na vlastních vinicích."
+    }
+  ],
+  "about": {
+    "badge": "O nás",
+    "title": "Naše historie a hodnoty",
+    "paragraphs": [
+      "Vinařství Badin je rodinný podnik s tradicí sahající do roku 1997.",
+      "Zaměřujeme se na produkci kvalitních moravských vín, která odrážejí charakter našeho regionu."
+    ],
+    "timeline": [
+      {
+        "year": "1997",
+        "title": "Založení vinařství",
+        "description": "Začínáme s malou vinicí o rozloze 1 hektar."
+      },
+      {
+        "year": "2005",
+        "title": "Rozšíření ploch",
+        "description": "Rozšiřujeme naše vinice na 5 hektarů."
+      },
+      {
+        "year": "2015",
+        "title": "Nový sklep",
+        "description": "Otevíráme moderně vybavený sklep s degustačními prostory."
+      }
+    ],
+    "cta": "Kontaktujte nás"
+  },
+  "news": {
+    "title": "Aktuality",
+    "subtitle": "Nejnovější zprávy a události z našeho vinařství."
+  },
+  "wines": {
+    "title": "Naše vína",
+    "subtitle": "Objevte naše portfolio kvalitních vín z jižní Moravy.",
+    "cta": "Zobrazit více"
+  },
+  "contact": {
+    "title": "Kontaktujte nás",
+    "intro": "Rádi vás přivítáme v našem vinařství. Napište nám nebo zavolejte.",
+    "details": {
+      "company": {
+        "name": "Vinařství Badin s.r.o.",
+        "ico": "12345678"
+      },
+      "owner": "Jan Novák",
+      "address": "Vinařská 123, 691 42 Valtice",
+      "phones": ["+420 123 456 789", "+420 987 654 321"],
+      "email": "info@vinarstvibadin.cz",
+      "openingHours": "Po-Pá: 9:00-17:00, So: 10:00-15:00",
+      "gps": "48.7412, 16.7549"
+    }
+  },
+  "popup": {
+    "enabled": false,
+    "title": "Letní výprodej",
+    "description": "Využijte slevu 15% na vybraná vína z naší nabídky.",
+    "buttonText": "Zobrazit nabídku",
+    "buttonLink": "#wines",
+    "imageUrl": "/popup-background.jpg"
+  }
+}
