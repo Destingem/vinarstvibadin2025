@@ -21,17 +21,18 @@ export default function Login() {
     setError("")
 
     try {
+      // Simple sign in with no redirect
       const result = await signIn("credentials", {
         username,
         password,
-        redirect: false
+        redirect: false,
       })
 
       if (result?.error) {
         setError("Neplatné přihlašovací údaje")
-      } else {
-        router.push("/admin")
-        router.refresh()
+      } else if (result?.ok) {
+        // Hard navigate to admin after successful login
+        window.location.href = "/admin"
       }
     } catch (error) {
       setError("Došlo k chybě při přihlašování")

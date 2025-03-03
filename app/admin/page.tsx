@@ -5,6 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Wine, FileText, Grape, Layout } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { useSession } from "next-auth/react"
+import { useRouter } from "next/navigation"
 
 interface Stats {
   wines: number
@@ -12,6 +14,16 @@ interface Stats {
 }
 
 export default function AdminDashboard() {
+  const { data: session, status } = useSession()
+  const router = useRouter()
+
+  // Protect page on client side as well
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/admin/login")
+    }
+  }, [status, router])
+
   const [stats, setStats] = useState<Stats>({ wines: 0, news: 0 })
   const [loading, setLoading] = useState(true)
 
@@ -39,6 +51,14 @@ export default function AdminDashboard() {
     
     fetchStats()
   }, [])
+
+  if (status === "loading") {
+    return <div>Načítání...</div>
+  }
+
+  if (!session) {
+    return null // Don't render anything while redirecting
+  }
 
   return (
     <div className="space-y-6">

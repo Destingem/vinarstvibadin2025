@@ -1,31 +1,24 @@
 import { AdminNav } from "@/components/admin/admin-nav"
 import { Toaster } from "@/components/ui/toaster"
-import { getServerSession } from "next-auth/next"
-import { redirect } from "next/navigation"
 import Link from "next/link"
 import { GitHubIcon } from "@/components/github-icon"
 import { UserButton } from "@/components/admin/user-button"
 import { Metadata } from "next"
-import { Providers } from "@/components/providers" // Import našeho nového provideru
+import { Providers } from "@/components/providers"
 
 export const metadata: Metadata = {
   title: "Administrace | Vinařství Badin",
   description: "Administrační rozhraní pro správu obsahu webu Vinařství Badin",
 }
 
-export default async function AdminLayout({
+export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  // Ověření přihlášení (server-side)
-  const session = await getServerSession()
-
-  // Přesměrování na přihlašovací stránku
-  if (!session) {
-    redirect("/admin/login")
-  }
-
+  // Remove server-side authentication check
+  // The middleware is already handling authentication for /admin/* routes
+  
   return (
     <Providers>
       <div className="min-h-screen flex flex-col">

@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 import { SiteHeader } from "@/components/site-header"
 import { ToastProvider } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
+import { SessionProvider } from "@/components/session-provider"
 
 // Definice fontů s podporou českých znaků
 const playfair = Playfair_Display({ 
@@ -48,10 +49,12 @@ export default function RootLayout({
         montserrat.variable, 
         "font-montserrat"
       )}>
-        <ToastProvider>
-          {children}
-          <Toaster />
-        </ToastProvider>
+        <SessionProvider>
+          <ToastProvider>
+            {children}
+            <Toaster />
+          </ToastProvider>
+        </SessionProvider>
       </body>
     </html>
   )
