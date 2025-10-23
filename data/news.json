@@ -1,11 +1,10 @@
 [
   {
-    "title": "Test",
-    "content": "Test",
-    "date": "01. 03. 2025",
-    "imageUrl": "",
-    "id": "c970f232-74c4-4e70-959c-849335706b81",
-    "createdAt": "2025-03-01T20:04:35.916Z",
-    "updatedAt": "2025-03-02T14:31:28.577Z"
+    "title": "ahoj",
+    "content": "dkjdnlsjos",
+    "date": "23. 10. 2025",
+    "imageUrl": "/api/image/3893c297-2ebd-4a55-a048-d371896b6165.png",
+    "id": "b10ff1fe-fc6f-43b6-b2f0-11a6ca4ef78b",
+    "createdAt": "2025-10-23T13:00:13.445Z"
   }
 ]

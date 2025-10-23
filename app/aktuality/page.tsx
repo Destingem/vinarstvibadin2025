@@ -3,6 +3,10 @@ import { TruncatedText } from "@/components/ui/truncated-text"
 import { Metadata } from "next"
 import { fetchNews } from "@/lib/api"
 
+// Vypnutí statické generace - vždy dynamické renderování
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export const metadata: Metadata = {
   title: "Aktuality | Vinařství Badin",
   description: "Nejnovější informace z našeho vinařství, pozvánky na akce a novinky v nabídce vín.",

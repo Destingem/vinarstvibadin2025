@@ -40,16 +40,19 @@ export async function POST(req: NextRequest) {
     const fileExtension = file.name.split(".").pop() || ""
     const uniqueFilename = `${uuidv4()}.${fileExtension}`
     
-    // Vytvoření adresáře pro uložení obrázků, pokud neexistuje
-    const uploadDir = path.join(process.cwd(), "public/uploads")
-    try {
-      await fs.access(uploadDir)
-    } catch {
-      await fs.mkdir(uploadDir, { recursive: true })
-    }
+    // Vytvoření adresáře pro uložení obrázků - použití path.resolve pro robustní cestu
+    const uploadDir = path.resolve(process.cwd(), "public", "uploads")
+    
+    // Debug logging
+    console.log('[UPLOAD] Current working directory:', process.cwd())
+    console.log('[UPLOAD] Upload directory:', uploadDir)
+    
+    // Zajistíme, že složka existuje
+    await fs.mkdir(uploadDir, { recursive: true })
     
     // Cesta k souboru
     const filePath = path.join(uploadDir, uniqueFilename)
+    console.log('[UPLOAD] File will be saved to:', filePath)
     
     // Převedení File na ArrayBuffer
     const buffer = await file.arrayBuffer()
@@ -57,8 +60,11 @@ export async function POST(req: NextRequest) {
     // Zápis souboru
     await fs.writeFile(filePath, Buffer.from(buffer))
     
-    // Vrácíme URL uloženého obrázku
-    const fileUrl = `/uploads/${uniqueFilename}`
+    // Vrácíme URL přes API endpoint (dynamické servírování)
+    const fileUrl = `/api/image/${uniqueFilename}`
+    
+    console.log('[UPLOAD] File saved successfully:', fileUrl)
+    console.log('[UPLOAD] Image will be served via API endpoint')
     
     return NextResponse.json({ 
       url: fileUrl,

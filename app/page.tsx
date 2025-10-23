@@ -1,4 +1,3 @@
-import { headers } from "next/headers"
 import { SiteHeader } from "@/components/site-header"
 import { PromoPopup } from "@/components/promo-popup"
 import { HeroSection } from "@/components/home/hero-section"
@@ -9,6 +8,10 @@ import { WinesSection } from "@/components/home/wines-section"
 import { ContactSection } from "@/components/home/contact-section"
 import { ContentData } from "@/types"
 import { fetchContent, fetchNews, fetchWines } from "@/lib/api"
+
+// Vypnutí statické generace - vždy dynamické renderování
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 // Fallback data pokud se nepodaří načíst obsah
 const fallbackContent: ContentData = {
@@ -168,4 +171,3 @@ export default async function Home() {
     );
   }
 }
-

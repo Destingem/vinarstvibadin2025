@@ -3,6 +3,7 @@ import fs from "fs/promises"
 import path from "path"
 import { v4 as uuidv4 } from "uuid"
 import { getServerSession } from "next-auth/next"
+import { authOptions } from "@/lib/auth"
 
 const dataFilePath = path.join(process.cwd(), "data", "news.json")
 
@@ -56,11 +57,11 @@ export async function GET() {
     
     const data = await fs.readFile(dataFilePath, "utf8")
     // Vrátíme seřazené od nejnovějších
-    const news = JSON.parse(data).sort((a: any, b: any) => {
+    const news = JSON.parse(data).sort((a: { createdAt: string }, b: { createdAt: string }) => {
       return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     })
     return NextResponse.json(news)
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Chyba při načítání aktualit" }, { status: 500 })
   }
 }
@@ -69,7 +70,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     // Ověření přihlášení administrátora
-    const session = await getServerSession()
+    const session = await getServerSession(authOptions)
     if (!session) {
       return NextResponse.json({ error: "Neautorizovaný přístup" }, { status: 401 })
     }
@@ -92,15 +93,18 @@ export async function POST(request: Request) {
     
     await fs.writeFile(dataFilePath, JSON.stringify(news, null, 2), "utf8")
     
-    // Revalidace hlavní stránky
+    // Revalidace hlavní stránky a stránky aktualit
     try {
-      await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/revalidate?path=/`)
+      const baseUrl = process.env.NEXTAUTH_URL || 'http://localhost:2456'
+      await fetch(`${baseUrl}/api/revalidate?path=/`)
+      await fetch(`${baseUrl}/api/revalidate?path=/aktuality`)
+      console.log('[NEWS] Pages revalidated successfully')
     } catch (error) {
       console.error("Chyba při revalidaci:", error)
     }
     
     return NextResponse.json(newsItemToAdd)
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Chyba při přidávání aktuality" }, { status: 500 })
   }
 }
