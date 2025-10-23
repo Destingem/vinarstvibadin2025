@@ -3,6 +3,7 @@ import path from "path"
 import fs from "fs/promises"
 import { v4 as uuidv4 } from "uuid"
 import { getServerSession } from "next-auth/next"
+import { authOptions } from "@/lib/auth"
 
 // Podporované typy obrázků
 const allowedTypes = ["image/jpeg", "image/png", "image/webp"]
@@ -13,7 +14,7 @@ const MAX_SIZE = 10 * 1024 ** 2
 export async function POST(req: NextRequest) {
   try {
     // Ověření přihlášení administrátora 
-    const session = await getServerSession()
+    const session = await getServerSession(authOptions)
     if (!session) {
       return NextResponse.json({ error: "Neautorizovaný přístup" }, { status: 401 })
     }
@@ -43,7 +44,7 @@ export async function POST(req: NextRequest) {
     const uploadDir = path.join(process.cwd(), "public/uploads")
     try {
       await fs.access(uploadDir)
-    } catch (error) {
+    } catch {
       await fs.mkdir(uploadDir, { recursive: true })
     }
     
