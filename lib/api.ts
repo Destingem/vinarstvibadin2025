@@ -22,7 +22,7 @@ export async function fetchContent(): Promise<ContentData> {
   try {
     const baseUrl = getBaseUrl();
     const response = await fetch(`${baseUrl}/api/content`, {
-      cache: 'no-store',
+      next: { revalidate: 60 }, // Revalidace každých 60 sekund
     });
     
     if (!response.ok) {
@@ -175,7 +175,7 @@ export async function fetchNews(): Promise<NewsItem[]> {
   try {
     const baseUrl = getBaseUrl();
     const response = await fetch(`${baseUrl}/api/news`, {
-      cache: 'no-store',
+      next: { revalidate: 60 }, // Revalidace každých 60 sekund
     });
     
     if (!response.ok) {
